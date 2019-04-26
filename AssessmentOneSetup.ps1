@@ -2,15 +2,19 @@
 if ($confirmation -eq 'y') {
   # proceed
 }
-#APPSERVER: Removes Files and Desktop Icons for MIU and GDC
-Remove-Item -Path "C:\Program Files (x86)\Tyler Technologies" -recurse
-Remove-Item -Path "C:\ProgramData\Munis" -recurse
-Remove-Item -Path "C:\Program Files (x86)\FourJs" -recurse
-Remove-Item -Path "C:\Users\Public\Desktop\MUNIS Prod.lnk" -recurse
-Remove-Item -Path "C:\Users\Public\Desktop\MUNIS 0100.lnk" -recurse
-Remove-Item -Path "C:\Users\Public\Desktop\Managed Internet Update.lnk" -recurse
-Remove-Item -Path "C:\Munis\TylerInstalls" -recurse
 
+$AppServer = "DEP-MA01"
+foreach($Computer in $AppServer)
+{
+#APPSERVER: Removes Files and Desktop Icons for MIU and GDC
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Program Files (x86)\Tyler Technologies" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\ProgramData\Munis" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Program Files (x86)\FourJs" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS Prod.lnk" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS 0100.lnk" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\Managed Internet Update.lnk" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\TylerInstalls" -recurse}
+}
 #Uninstalls MIU and GDC from App Server's Programs and Features
 #MIU
 $app = Get-WmiObject -Class Win32_Product `
