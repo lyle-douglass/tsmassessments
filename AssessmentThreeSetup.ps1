@@ -15,6 +15,10 @@ $WebServer = "DEP-EW01"
 foreach($Computer in $WebServer)
 {
 #TPAR
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop ParksRecService0100}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop ParksRecServiceprod}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete ParksRecService0100}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete ParksRecServiceprod}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Website -Name TPAR}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tylerroot\prod" -recurse}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tylerroot\0100" -recurse}
@@ -27,10 +31,6 @@ foreach($Computer in $WebServer)
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.parksrecadmin}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.parksrecservices}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.parksrecservice}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop ParksRecService0100}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop ParksRecServiceprod}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete ParksRecService0100}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete ParksRecServiceprod}
 #Tyler311
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Website -Name Tyler311}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tyler311\prod" -recurse}
@@ -49,6 +49,10 @@ $ISServer = "DEP-IS01"
 foreach($Computer in $ISServer)
 {
   #Tyler311
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop TIM.0100.windowsservice}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop TIM.prod.windowsservice}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete TIM.0100.windowsservice}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete TIM.prod.windowsservice}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tylerroot\prod\tyler311" -recurse}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tylerroot\0100\tyler311" -recurse}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.personsearch}
@@ -73,9 +77,4 @@ foreach($Computer in $ISServer)
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timprivate}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timreports}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timtask}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop TIM.0100.windowsservice}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop TIM.prod.windowsservice}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete TIM.0100.windowsservice}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete TIM.prod.windowsservice}
-
 }
