@@ -55,12 +55,16 @@ Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_n
 GO
 USE [master]
 GO
+ALTER DATABASE [dm_munprod] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
 DROP DATABASE [dm_munprod]
 GO" -ServerInstance "DEP-DB01\tylerci"
 
 Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'dm_mun0100'
 GO
 USE [master]
+GO
+ALTER DATABASE [dm_mun0100] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
 DROP DATABASE [dm_mun0100]
 GO" -ServerInstance "DEP-DB01\tylerci"
@@ -69,12 +73,16 @@ Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_n
 GO
 USE [master]
 GO
+ALTER DATABASE [st_munprod] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
 DROP DATABASE [st_munprod]
 GO" -ServerInstance "DEP-DB01\tylerci"
 
 Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'st_mun0100'
 GO
 USE [master]
+GO
+ALTER DATABASE [st_mun0100] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
 DROP DATABASE [st_mun0100]
 GO" -ServerInstance "DEP-DB01\tylerci"
@@ -133,6 +141,8 @@ Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_n
 GO
 USE [master]
 GO
+ALTER DATABASE [tyleridprod] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
 DROP DATABASE [tyleridprod]
 GO" -ServerInstance "DEP-DB01\tylerci"
 
@@ -140,6 +150,8 @@ GO" -ServerInstance "DEP-DB01\tylerci"
 Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'tylerid0100'
 GO
 USE [master]
+GO
+ALTER DATABASE [tylerid0100] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
 DROP DATABASE [tylerid0100]
 GO" -ServerInstance "DEP-DB01\tylerci"
@@ -149,6 +161,8 @@ Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_n
 GO
 USE [master]
 GO
+ALTER DATABASE [tylerhubprod] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
 DROP DATABASE [tylerhubprod]
 GO" -ServerInstance "DEP-DB01\tylerci"
 
@@ -156,6 +170,8 @@ GO" -ServerInstance "DEP-DB01\tylerci"
 Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'tylerhub0100'
 GO
 USE [master]
+GO
+ALTER DATABASE [tylerhub0100] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
 DROP DATABASE [tylerhub0100]
 GO" -ServerInstance "DEP-DB01\tylerci"
@@ -165,6 +181,8 @@ Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_n
 GO
 USE [master]
 GO
+ALTER DATABASE [tylerformsprod] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
 DROP DATABASE [tylerformsprod]
 GO" -ServerInstance "DEP-DB01\tylerci"
 
@@ -172,6 +190,8 @@ GO" -ServerInstance "DEP-DB01\tylerci"
 Invoke-Sqlcmd -Query "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'tylerforms0100'
 GO
 USE [master]
+GO
+ALTER DATABASE [tylerforms0100] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
 DROP DATABASE [tylerforms0100]
 GO" -ServerInstance "DEP-DB01\tylerci"

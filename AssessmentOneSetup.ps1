@@ -13,7 +13,7 @@ Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Progr
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS Prod.lnk" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS 0100.lnk" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\Managed Internet Update.lnk" -recurse}
-Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\TylerInstalls" -recurse}
+#Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\TylerInstalls" -recurse}
 }
 #Uninstalls MIU and GDC from App Server's Programs and Features
 #MIU
