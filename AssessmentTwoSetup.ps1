@@ -253,3 +253,8 @@ Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODRP
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODSched}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASWAPROD}
 }
+
+$confirmation = Read-Host "You will now need to manually remove SSRS Reports for the Assessment. Confirm you will perform this task now..."
+if ($confirmation -eq 'y') {
+  # proceed
+}
