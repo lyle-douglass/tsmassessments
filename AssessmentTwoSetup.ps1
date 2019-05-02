@@ -215,14 +215,41 @@ Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\mun0100\webapps\MunisHosting0100" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\munprod\webapps\MunisProd" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\mun0100\webapps\Munis0100" -recurse}
-}
-
 #Remove XCF Files
-$AppServer = "DEP-MA01"
-foreach ($Computer in $AppServer) 
-{
 Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\munprod\webapps\gas\wa" | Remove-Item}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\munprod\webapps\gas\ws" | Remove-Item}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\mun0100\webapps\gas\wa" | Remove-Item}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\mun0100\webapps\gas\ws" | Remove-Item}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100 -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100Cash -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100Integration -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100MSS -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100Net -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100RPT -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GAS0100Sched -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASWA0100 -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPROD -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODCash -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODIntegration -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODMSS -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODNet -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODRPT -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASPRODSched -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name GASWAPROD -Site "Default Web Site"}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100Cash}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100Integration}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100MSS}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100Net}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100RPT}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GAS0100Sched}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASWA0100}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPROD}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODCash}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODIntegration}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODMSS}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODNet}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODRPT}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASPRODSched}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool GASWAPROD}
 }
