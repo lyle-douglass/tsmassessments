@@ -221,8 +221,8 @@ Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis
 $AppServer = "DEP-MA01"
 foreach ($Computer in $AppServer) 
 {
-Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\munprod\webapps\gas\wa" -recurse}
-Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\munprod\webapps\gas\ws" -recurse}
-Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\mun0100\webapps\gas\wa" -recurse}
-Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\mun0100\webapps\gas\ws" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\munprod\webapps\gas\wa" | Remove-Item}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\munprod\webapps\gas\ws" | Remove-Item}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\mun0100\webapps\gas\wa" | Remove-Item}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Get-ChildItem *.xcf -Recurse -Path "C:\Munis\mun0100\webapps\gas\ws" | Remove-Item}
 }
