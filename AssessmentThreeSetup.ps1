@@ -65,7 +65,7 @@ foreach($Computer in $ISServer)
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.timmessaging}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.timprivate}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.timreports}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.timtask}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.timtasks}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.personsearch}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timadmin}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timincidentcreate}
@@ -76,7 +76,7 @@ foreach($Computer in $ISServer)
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timmessaging}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timprivate}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timreports}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timtask}
+  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timtasks}
   #Cashiering
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\tyladmin\Desktop\Tyler Cashiering.lnk"}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebApplication -Name CashieringProd -Site "Default Web Site"}
