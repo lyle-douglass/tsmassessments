@@ -32,10 +32,10 @@ foreach($Computer in $WebServer)
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.parksrecservices}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool 0100.parksrecservice}
 #Tyler311
-  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Website -Name Tyler311}
+  #Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Website -Name Tyler311}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tyler311\prod" -recurse}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\inetpub\tyler311\0100" -recurse}
-  Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool Tyler311}
+  #Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool Tyler311}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.portalservice}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timportal}
   Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-WebAppPool prod.timpublic}
