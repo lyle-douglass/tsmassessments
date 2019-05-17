@@ -13,7 +13,8 @@ Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Progr
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS Prod.lnk" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\MUNIS 0100.lnk" -recurse}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Users\Public\Desktop\Managed Internet Update.lnk" -recurse}
-#Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\TylerInstalls" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path "C:\Munis\TylerInstalls" -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Printer -Name "TSMTest"}
 }
 #Uninstalls MIU and GDC from App Server's Programs and Features
 #MIU
@@ -32,5 +33,10 @@ Foreach($Computer in $MSSServer)
 Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe stop MIUAgent}
 Invoke-Command -ComputerName $Computer -ScriptBlock {sc.exe delete MIUAgent}
 Invoke-Command -ComputerName $Computer -ScriptBlock {Remove-Item -Path 'C:\Program Files (x86)\Tyler Technologies' -recurse}
+Invoke-Command -ComputerName $Computer -ScriptBlock {
+  $app = Get-WmiObject -Class Win32_Product `
+                     -Filter "Name = 'MIU Agent'"
+  $app.Uninstall()
+  }
 }
 
